@@ -1,7 +1,15 @@
 
+var url = window.location.href;
+var swLocation = '/testPWA/sw.js';
+
 // Registre del sw
 if ( navigator.serviceWorker ) {
-    navigator.serviceWorker.register('/sw.js');
+    
+    if( url.includes('localhost') ) {
+        swLocation = '/sw.js';
+    }       
+    
+    navigator.serviceWorker.register( swLocation );
 }
     
 
